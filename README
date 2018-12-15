@@ -1,0 +1,94 @@
+//////////////////////////////////////////////////////////////////////////////////////
+//	Protein Contact Matrix Generator (PCMGen)
+//Command line application to generate 2D contact matrices from 3D protein structures
+//////////////////////////////////////////////////////////////////////////////////////
+
+==================================================================================
+0. Table of Contents - $Date: 2015/25/06 (Updated 2018/23/11)
+==================================================================================
+
+0. Table of Contents
+1. Protein Contact Map/ Matrix - Introduction
+2. Installation / Usage
+3. License Agreement
+
+==================================================================================
+1 Protein Contact Map/ Matrix - Introduction
+==================================================================================
+
+Thank you for downloading PCMGen 1.0
+
+A protein contact matrix is 2D representation of the distances between amino acid
+residues in a 3D protein structure. Protein Contact Map Generator (PCMGen) is a
+command line tool which takes protein 3D structures (PDB format files) as input
+and computes contact distances between two chains (from single or two different
+proteins). These matrix files can be further visualised as Contact Maps using other
+visualization tools/ programs (like R-heatmaps).
+
+Contact Maps can be used to understand protein's :
+1. Secondary structures
+2. Conformational arrangements
+3. Surface interactions
+_________________________________________________________________________________________
+Arguments of PCMGen 1.0
+
+1. PDB format protein files to be loaded (maximum files 2)
+   Input comma separated PDB files with complete path
+2. Enter chain number to be loaded as chain 1 (for first protein loaded)
+3. Enter chain number to be loaded as chain 2 (for second protein -in case of two PDB files)
+4. Default PCMGen parameters include Atom type = 'CA' , Distance cutoff = '8.0'
+   If you wish to change the parameters they can be changed at this step
+5. PCMGen can generate three types of matrix outputs;
+	 1: Contact Distance Matrix (default)
+	 2: Contact Matrix
+	 3: Contact Score Matrix
+   You can give input as 1,2 or 3 otherwise default (i.e. 1) is selected
+6. Finally you can give output file into which you wish to store the matrix
+
+__________________________________________________________________________________________
+
+The package has been tested
+	on the following JDK:
+	    * >= JDK 1.6
+	on the following OS:
+	    * Linux
+
+Developed by
+- Sanket Desai { desai.sanket12@outlook.com }
+
+==========================================================================================
+2. Installation / Usage
+==========================================================================================
+
+- Download the JAR file (PCMGen1.0.jar)
+- Use the following command to execute JAR file:
+
+$ java -jar PCMGen1.0.jar
+
+The output file contains a matrix, which can be imported in any visualization tools
+to generate the graphical result or the Contact Map of the proteins.
+
+For example using R (http://www.r-project.org/) following command generates a Contact Map
+- contmap.out being the output file from PCMGen
+
+> heatmap(as.matrix(read.table("contmap.out")), Rowv=NA, Colv=NA, col = heat.colors(3))
+
+===========================================================================================
+3. License Agreement
+===========================================================================================
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+============================================================================================
+
+Cheers!
+
+Sanket Desai {desai.sanket12@outlook.com}
